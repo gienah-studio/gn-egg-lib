@@ -2,7 +2,7 @@ import { EggBaseError, ErrorOptions } from 'egg-errors';
 import GN_ERROR_MESSAGE from './error.message';
 
 export default class GNError extends EggBaseError<ErrorOptions> {
-  constructor(code, data) {
+  constructor(code, data?: any) {
     super({ message: GN_ERROR_MESSAGE[code], code });
     if (data == null) {
       return;

@@ -1,5 +1,6 @@
 enum GN_HTTP_CODE {
   UNAUTHORIZED = 401,
+  UNPROCESSABLE_ENTITY = 422,
 }
 
 export default GN_HTTP_CODE;
