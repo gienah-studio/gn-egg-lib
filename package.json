@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "prepublish": "tsc",
-    "pub": "np"
+    "pub": "tsc && np"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "repository": {
     "type": "git",
