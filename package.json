@@ -1,0 +1,30 @@
+{
+  "name": "gn-egg-lib",
+  "version": "1.0.0",
+  "description": "eggjs lib for gienah-studio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gienah-studio/gn-egg-lib.git"
+  },
+  "author": "Kefei Qian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gienah-studio/gn-egg-lib/issues"
+  },
+  "homepage": "https://github.com/gienah-studio/gn-egg-lib#readme",
+  "devDependencies": {
+    "@types/lodash": "^4.14.152",
+    "egg": "^2.26.1",
+    "egg-errors": "^2.1.1",
+    "lodash": "^4.17.15",
+    "prettier": "^2.0.5",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.3"
+  }
+}
