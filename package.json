@@ -2,10 +2,10 @@
   "name": "gn-egg-lib",
   "version": "1.0.3",
   "description": "eggjs lib for gienah-studio",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "pub": "tsc && np"
+    "pub": "np",
+    "lint": "tsc --noEmit"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -29,5 +29,14 @@
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.0.0",
     "typescript": "^3.9.3"
-  }
+  },
+  "files": [
+    "gn-authorize",
+    "gn-base-controller",
+    "gn-error",
+    "gn-param-validation",
+    "gn-router",
+    "README.md",
+    "index.d.ts"
+  ]
 }

@@ -19,9 +19,9 @@ export default class GNError extends EggBaseError<ErrorOptions> {
     }
 
     if (data.ctx) {
-      this.requestHeader = data.ctx.request.header;
-      this.requestBody = data.ctx.request.body;
-      this.requestQuery = data.ctx.request.query;
+      data.ctx.request.header && (this.requestHeader = data.ctx.request.header);
+      data.ctx.request.body && (this.requestBody = data.ctx.request.body);
+      data.ctx.request.query && (this.requestQuery = data.ctx.request.query);
       delete this.data.ctx;
     }
   }

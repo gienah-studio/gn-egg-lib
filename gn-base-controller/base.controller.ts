@@ -1,10 +1,10 @@
-import { Controller } from "egg";
-import _ = require("lodash");
-import GNError, { GN_ERROR_CODE } from "../gn-error";
+import { Controller } from 'egg';
+import _ = require('lodash');
+import GNError, { GN_ERROR_CODE } from '../gn-error';
 
 export default class GNBaseController extends Controller {
   get userId() {
-    return _.get(this.ctx, "request.header.userid");
+    return _.get(this.ctx, 'request.header.userid');
   }
 
   success(data) {
@@ -18,17 +18,12 @@ export default class GNBaseController extends Controller {
   }
 
   failure(e) {
-    let responseBody = {};
-    if (!this.config.isProd && e.data) {
-      responseBody = e.data;
+    if (e instanceof GNError) {
+      this.ctx.throw(e);
+    } else {
+      this.ctx.throw(
+        new GNError(GN_ERROR_CODE.INTERNAL_SERVER_ERROR, e)
+      );
     }
-
-    if (e.code) {
-      return this.ctx.throw(new GNError(e.code, responseBody));
-    }
-
-    return this.ctx.throw(
-      new GNError(GN_ERROR_CODE.INTERNAL_SERVER_ERROR, { responseBody, e })
-    );
   }
 }

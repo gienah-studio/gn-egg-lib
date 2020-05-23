@@ -1,6 +1,6 @@
-import GN_HTTP_CODE from '../gn-constant/http.code';
 import GNBaseController from '../gn-base-controller';
 import AUTHORIZE_ROLE from './authorize.role';
+import GNError, { GN_ERROR_CODE } from '../gn-error';
 
 export default function Authorize(...authRoles: AUTHORIZE_ROLE[]) {
   const authRole = (authRoles || []).reduce((c, e) => c | e, 0);
@@ -17,18 +17,18 @@ export default function Authorize(...authRoles: AUTHORIZE_ROLE[]) {
       const { ctx, service, userId } = this;
 
       if (!userId) {
-        ctx.status = GN_HTTP_CODE.UNAUTHORIZED;
+        this.failure(new GNError(GN_ERROR_CODE.UNAUTHORIZED));
         return;
       }
 
       const { role } = await service.user.getUserInfo(userId);
 
       if ((role & authRole) === 0) {
-        ctx.status = GN_HTTP_CODE.UNAUTHORIZED;
+        this.failure(new GNError(GN_ERROR_CODE.UNAUTHORIZED));
         return;
       }
 
-      originalFunction.apply(this, ...args);
+      return await originalFunction.apply(this, ...args);
     };
   };
 }
