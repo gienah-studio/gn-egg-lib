@@ -4,8 +4,8 @@
   "description": "eggjs lib for gienah-studio",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "pub": "np",
-    "lint": "tsc --noEmit"
+    "pub": "npm run lint && np",
+    "lint": "tsc"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/gienah-studio/gn-egg-lib#readme",
   "devDependencies": {
+    "@types/hapi__joi": "^17.1.0",
     "@types/lodash": "^4.14.152",
     "egg": "^2.26.1",
     "egg-errors": "^2.1.1",
@@ -38,5 +39,8 @@
     "gn-router",
     "README.md",
     "index.d.ts"
-  ]
+  ],
+  "dependencies": {
+    "@hapi/joi": "^17.1.1"
+  }
 }

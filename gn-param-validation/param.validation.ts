@@ -1,8 +1,8 @@
-import GNBaseController from 'gn-egg-lib/gn-base-controller';
-import { GN_ROUTER_METHOD_METADATA } from 'gn-egg-lib/gn-router/constants';
-import GN_HTTP_METHOD from 'gn-egg-lib/gn-constant/http.method';
-import GNError, { GN_ERROR_CODE } from 'gn-egg-lib/gn-error';
 import * as joi from '@hapi/joi';
+import GNBaseController from '../gn-base-controller';
+import { GN_ROUTER_METHOD_METADATA } from '../gn-router/constants';
+import GN_HTTP_METHOD from '../gn-constant/http.method';
+import GNError, { GN_ERROR_CODE } from '../gn-error';
 
 export default function ParamValidate(params: joi.SchemaMap<any>) {
   return function (target, key, descriptor) {
