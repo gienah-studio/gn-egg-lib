@@ -3,9 +3,8 @@
   "version": "1.0.5",
   "description": "eggjs lib for gienah-studio",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "pub": "npm run lint && np",
-    "lint": "tsc"
+    "test": "tsc",
+    "pub": "npm run test && np"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -35,6 +34,7 @@
     "gn-authorize",
     "gn-base-controller",
     "gn-error",
+    "gn-constant",
     "gn-param-validation",
     "gn-router",
     "README.md",
