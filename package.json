@@ -3,8 +3,8 @@
   "version": "1.0.6",
   "description": "eggjs lib for gienah-studio",
   "scripts": {
-    "test": "tsc",
-    "pub": "npm run test && np"
+    "lint": "tsc",
+    "pub": "npm run lint && np"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -25,6 +25,7 @@
     "egg": "^2.26.1",
     "egg-errors": "^2.1.1",
     "lodash": "^4.17.15",
+    "np": "^6.2.3",
     "prettier": "^2.0.5",
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.0.0",

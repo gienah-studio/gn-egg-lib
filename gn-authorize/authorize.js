@@ -20,7 +20,7 @@ function Authorize(...authRoles) {
                 this.failure(new gn_error_1.default(gn_error_1.GN_ERROR_CODE.UNAUTHORIZED));
                 return;
             }
-            return await originalFunction.apply(this, ...args);
+            return await originalFunction.apply(this, [...args]);
         };
     };
 }

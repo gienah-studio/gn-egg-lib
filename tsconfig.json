@@ -22,7 +22,10 @@
     "skipDefaultLibCheck": true,
     "inlineSourceMap": false,
     "importHelpers": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "newLine": "LF"
   },
-  "exclude": ["node_modules*"]
+  "exclude": [
+    "node_modules*"
+  ]
 }

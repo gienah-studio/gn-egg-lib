@@ -15,11 +15,11 @@ function ParamValidate(params) {
             }
             const method = Reflect.getMetadata(constants_1.GN_ROUTER_METHOD_METADATA, target[key]);
             const data = method === http_method_1.default.GET ? this.ctx.request.query : this.ctx.request.body;
-            const { error } = schema.validate(data);
+            const { error, value } = schema.validate(data);
             if (error) {
                 this.failure(new gn_error_1.default(gn_error_1.GN_ERROR_CODE.UNPROCESSABLE_ENTITY, error));
             }
-            return await originalFunction.apply(this, ...args);
+            return await originalFunction.apply(this, [value, ...args]);
         };
     };
 }

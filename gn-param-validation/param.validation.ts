@@ -18,12 +18,12 @@ export default function ParamValidate(params: joi.SchemaMap<any>) {
       const method = Reflect.getMetadata(GN_ROUTER_METHOD_METADATA, target[key]);
       const data = method === GN_HTTP_METHOD.GET ? this.ctx.request.query : this.ctx.request.body;
 
-      const { error } = schema.validate(data);
+      const { error, value } = schema.validate(data);
       if (error) {
         this.failure(new GNError(GN_ERROR_CODE.UNPROCESSABLE_ENTITY, error));
       }
 
-      return await originalFunction.apply(this, ...args);
+      return await originalFunction.apply(this, [value, ...args]);
     };
   };
 }

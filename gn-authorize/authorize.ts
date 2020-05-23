@@ -28,7 +28,7 @@ export default function Authorize(...authRoles: AUTHORIZE_ROLE[]) {
         return;
       }
 
-      return await originalFunction.apply(this, ...args);
+      return await originalFunction.apply(this, [...args]);
     };
   };
 }
