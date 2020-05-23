@@ -37,6 +37,7 @@
     "gn-constant",
     "gn-param-validation",
     "gn-router",
+    "gn-utils",
     "README.md",
     "index.d.ts"
   ],
