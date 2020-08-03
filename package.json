@@ -1,6 +1,6 @@
 {
   "name": "gn-egg-lib",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "eggjs lib for gienah-studio",
   "scripts": {
     "lint": "tsc",
