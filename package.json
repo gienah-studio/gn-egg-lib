@@ -20,20 +20,21 @@
   },
   "homepage": "https://github.com/gienah-studio/gn-egg-lib#readme",
   "devDependencies": {
-    "@types/hapi__joi": "^17.1.3",
-    "@types/lodash": "^4.14.157",
-    "egg": "^2.26.1",
+    "@types/hapi__joi": "^17.1.4",
+    "@types/lodash": "^4.14.158",
+    "egg": "^2.27.0",
     "egg-errors": "^2.1.1",
-    "lodash": "^4.17.15",
-    "np": "^6.2.5",
+    "lodash": "^4.17.19",
+    "np": "^6.3.2",
     "prettier": "^2.0.5",
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.7"
   },
   "files": [
     "gn-authorize",
     "gn-base-controller",
+    "gn-enum",
     "gn-error",
     "gn-constant",
     "gn-param-validation",

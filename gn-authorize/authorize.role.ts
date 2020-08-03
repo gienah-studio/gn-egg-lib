@@ -1,8 +1,6 @@
-enum AUTHORIZE_ROLE {
-  ADMIN_USER = 1,
-  INDIVIDUAL_USER = 2,
-  BUSINESS_USER = 4,
-  CUSTOMER_SERVICE_USER = 8,
-}
+import GNEnum from '../gn-enum';
 
-export default AUTHORIZE_ROLE;
+export default class GN_AUTHORIZE_ROLE extends GNEnum<number> {
+  public static ADMIN_USER = new GN_AUTHORIZE_ROLE(0);
+  public static INDIVIDUAL_USER = new GN_AUTHORIZE_ROLE(1 << 0);
+}

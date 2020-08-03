@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const gn_error_1 = require("../gn-error");
+const authorize_role_1 = require("./authorize.role");
 function Authorize(...authRoles) {
-    const authRole = (authRoles || []).reduce((c, e) => c | e, 0);
+    const authRole = (authRoles || []).reduce((c, e) => c | e.getValue(), 0);
     return function (target, key, descriptor) {
         if (authRoles.length === 0) {
             console.warn('Please provide at least one AUTHORIZE_ROLE', target, key);
@@ -16,7 +17,7 @@ function Authorize(...authRoles) {
                 return;
             }
             const role = await service.core.account.getRole(userId);
-            if ((role & authRole) === 0) {
+            if (!authorize_role_1.default.ADMIN_USER.isEqual(role) && (role & authRole) === 0) {
                 this.failure(new gn_error_1.default(gn_error_1.GN_ERROR_CODE.UNAUTHORIZED));
                 return;
             }

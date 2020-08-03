@@ -1,9 +1,9 @@
 import GNBaseController from '../gn-base-controller';
-import AUTHORIZE_ROLE from './authorize.role';
 import GNError, { GN_ERROR_CODE } from '../gn-error';
+import AUTHORIZE_ROLE from './authorize.role';
 
 export default function Authorize(...authRoles: AUTHORIZE_ROLE[]) {
-  const authRole = (authRoles || []).reduce((c, e) => c | e, 0);
+  const authRole = (authRoles || []).reduce((c, e) => c | e.getValue(), 0);
 
   return function (target, key, descriptor) {
     if (authRoles.length === 0) {
@@ -23,7 +23,7 @@ export default function Authorize(...authRoles: AUTHORIZE_ROLE[]) {
 
       const role = await service.core.account.getRole(userId);
 
-      if ((role & authRole) === 0) {
+      if (!AUTHORIZE_ROLE.ADMIN_USER.isEqual(role) && (role & authRole) === 0) {
         this.failure(new GNError(GN_ERROR_CODE.UNAUTHORIZED));
         return;
       }
