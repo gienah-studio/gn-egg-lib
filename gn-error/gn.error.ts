@@ -1,9 +1,10 @@
 import { EggBaseError, ErrorOptions } from 'egg-errors';
 import GN_ERROR_MESSAGE from './error.message';
+import GN_ERROR_CODE from './error.code';
 
 export default class GNError extends EggBaseError<ErrorOptions> {
-  constructor(code, data?: any) {
-    super({ message: GN_ERROR_MESSAGE[code], code });
+  constructor(code: GN_ERROR_CODE, data?: any) {
+    super({ message: GN_ERROR_MESSAGE.get(code) || '', code: code.getValue() });
     if (data == null) {
       return;
     }
@@ -15,7 +16,7 @@ export default class GNError extends EggBaseError<ErrorOptions> {
       };
     } else {
       this.data = data;
-      this.message = GN_ERROR_MESSAGE[code] || data.message || (data.e && data.e.message);
+      this.message = GN_ERROR_MESSAGE.get(code) || data.message || (data.e && data.e.message);
     }
 
     if (data.ctx) {

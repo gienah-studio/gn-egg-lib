@@ -10,9 +10,10 @@ export default class GN_ERROR_CODE extends GNEnum<string> {
   public static CREATE_TRANSACTION_ERROR = new GN_ERROR_CODE('00006');
   public static HTTP_GET_ERROR = new GN_ERROR_CODE('00007');
   public static HTTP_POST_ERROR = new GN_ERROR_CODE('00008');
-  public static JWT_GENERATION_ERROR = new GN_ERROR_CODE('00009');
-
-  public static TOO_MANY_REQUEST = new GN_ERROR_CODE('10001');
-  public static UNAUTHORIZED = new GN_ERROR_CODE('10002');
-  public static UNPROCESSABLE_ENTITY = new GN_ERROR_CODE('10003');
+  public static HTTP_REQUEST_ERROR = new GN_ERROR_CODE('00009');
+  public static JWT_GENERATION_ERROR = new GN_ERROR_CODE('00010');
+  public static JWT_VERIFICATION_ERROR = new GN_ERROR_CODE('00011');
+  public static UNAUTHORIZED = new GN_ERROR_CODE('00012');
+  public static TOO_MANY_REQUEST = new GN_ERROR_CODE('00013');
+  public static UNPROCESSABLE_ENTITY = new GN_ERROR_CODE('00014');
 }
