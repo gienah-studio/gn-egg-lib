@@ -1,19 +1,16 @@
 import GNEnum from '../gn-enum';
 
-export default class GN_ERROR_CODE extends GNEnum<string> {
-  public static SUCCESS = new GN_ERROR_CODE('00000');
-  public static UNKNOWN_ERROR = new GN_ERROR_CODE('00001');
-  public static NETWORK_ERROR = new GN_ERROR_CODE('00002');
-  public static INTERNAL_SERVER_ERROR = new GN_ERROR_CODE('00003');
-  public static CACHE_ERROR = new GN_ERROR_CODE('00004');
-  public static DATABASE_ERROR = new GN_ERROR_CODE('00005');
-  public static CREATE_TRANSACTION_ERROR = new GN_ERROR_CODE('00006');
-  public static HTTP_GET_ERROR = new GN_ERROR_CODE('00007');
-  public static HTTP_POST_ERROR = new GN_ERROR_CODE('00008');
-  public static HTTP_REQUEST_ERROR = new GN_ERROR_CODE('00009');
-  public static JWT_GENERATION_ERROR = new GN_ERROR_CODE('00010');
-  public static JWT_VERIFICATION_ERROR = new GN_ERROR_CODE('00011');
-  public static UNAUTHORIZED = new GN_ERROR_CODE('00012');
-  public static TOO_MANY_REQUEST = new GN_ERROR_CODE('00013');
-  public static UNPROCESSABLE_ENTITY = new GN_ERROR_CODE('00014');
+export default class GN_ERROR_CODE extends GNEnum<[string, string]> {
+  public static SUCCESS = new GN_ERROR_CODE(['00000', 'ok']);
+  public static UNKNOWN_ERROR = new GN_ERROR_CODE(['00001', 'unknown error']);
+  public static NETWORK_ERROR = new GN_ERROR_CODE(['00002', 'network error']);
+  public static INTERNAL_SERVER_ERROR = new GN_ERROR_CODE(['00003', 'internal server error']);
+  public static CACHE_ERROR = new GN_ERROR_CODE(['00004', 'cache error']);
+  public static DATABASE_ERROR = new GN_ERROR_CODE(['00005', 'database error']);
+  public static TRANSACTION_ERROR = new GN_ERROR_CODE(['00006', 'transaction error']);
+  public static HTTP_REQUEST_ERROR = new GN_ERROR_CODE(['00007', 'http request error']);
+  public static JWT_GENERATION_ERROR = new GN_ERROR_CODE(['00008', 'jwt generation error']);
+  public static JWT_VERIFICATION_ERROR = new GN_ERROR_CODE(['00009', 'jwt verification error']);
+  public static UNAUTHORIZED = new GN_ERROR_CODE(['00010', 'unauthorized']);
+  public static UNPROCESSABLE_ENTITY = new GN_ERROR_CODE(['00011', 'api param invalid']);
 }

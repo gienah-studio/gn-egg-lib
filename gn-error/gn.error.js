@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const egg_errors_1 = require("egg-errors");
-const error_message_1 = require("./error.message");
 class GNError extends egg_errors_1.EggBaseError {
     constructor(code, data) {
-        super({ message: error_message_1.default.get(code) || '', code: code.getValue() });
+        super({ code: code.getValue()[0], message: code.getValue()[1] || '' });
         if (data == null) {
             return;
         }
@@ -16,7 +15,7 @@ class GNError extends egg_errors_1.EggBaseError {
         }
         else {
             this.data = data;
-            this.message = error_message_1.default.get(code) || data.message || (data.e && data.e.message);
+            this.message = code.getValue()[1] || data.message || (data.e && data.e.message);
         }
         if (data.ctx) {
             data.ctx.request.header && (this.requestHeader = data.ctx.request.header);
