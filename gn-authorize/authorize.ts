@@ -23,7 +23,7 @@ export default function Authorize(...authRoles: AUTHORIZE_ROLE[]) {
 
       const role = await service.core.account.getRole(userId);
 
-      if (!AUTHORIZE_ROLE.ADMIN_USER.isEqual(role) && (role & authRole) === 0) {
+      if ((role & authRole) === 0) {
         this.failure(new GNError(GN_ERROR_CODE.UNAUTHORIZED));
         return;
       }

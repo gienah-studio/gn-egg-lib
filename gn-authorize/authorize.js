@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const gn_error_1 = require("../gn-error");
-const authorize_role_1 = require("./authorize.role");
 function Authorize(...authRoles) {
     const authRole = (authRoles || []).reduce((c, e) => c | e.getValue(), 0);
     return function (target, key, descriptor) {
@@ -17,7 +16,7 @@ function Authorize(...authRoles) {
                 return;
             }
             const role = await service.core.account.getRole(userId);
-            if (!authorize_role_1.default.ADMIN_USER.isEqual(role) && (role & authRole) === 0) {
+            if ((role & authRole) === 0) {
                 this.failure(new gn_error_1.default(gn_error_1.GN_ERROR_CODE.UNAUTHORIZED));
                 return;
             }
