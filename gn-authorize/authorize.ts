@@ -1,7 +1,6 @@
 import GNBaseController from '../gn-base-controller';
 import GNError, { GN_ERROR_CODE } from '../gn-error';
 import AUTHORIZE_ROLE from './authorize.role';
-import * as _ from 'lodash';
 
 export default function Authorize(...authRoles: AUTHORIZE_ROLE[]) {
   const authRole = (authRoles || []).reduce((c, e) => c | e.getValue(), 0);
@@ -15,9 +14,9 @@ export default function Authorize(...authRoles: AUTHORIZE_ROLE[]) {
     const originalFunction = descriptor.value;
 
     descriptor.value = async function (this: GNBaseController, ...args: any[]) {
-      const { service, ctx } = this;
+      const { service } = this;
 
-      const userId = _.get(ctx, 'headers.userId', _.get(ctx, 'session.user.userId'));
+      const { userId } = this;
       if (!userId) {
         this.failure(new GNError(GN_ERROR_CODE.UNAUTHORIZED));
         return;

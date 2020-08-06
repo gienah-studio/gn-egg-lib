@@ -5,11 +5,11 @@ const _ = require("lodash");
 const gn_error_1 = require("../gn-error");
 class GNBaseController extends egg_1.Controller {
     get userId() {
-        return _.get(this.ctx, 'request.header.userid');
+        return _.get(this.ctx, 'session.user.userId') || _.get(this.ctx, 'request.header.userid');
     }
     success(data) {
         const responseBody = {
-            code: gn_error_1.GN_ERROR_CODE.SUCCESS,
+            code: gn_error_1.GN_ERROR_CODE.SUCCESS.getValue()[0],
         };
         if (data !== undefined) {
             responseBody.data = data;

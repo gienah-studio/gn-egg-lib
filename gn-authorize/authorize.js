@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const gn_error_1 = require("../gn-error");
-const _ = require("lodash");
 function Authorize(...authRoles) {
     const authRole = (authRoles || []).reduce((c, e) => c | e.getValue(), 0);
     return function (target, key, descriptor) {
@@ -11,8 +10,8 @@ function Authorize(...authRoles) {
         }
         const originalFunction = descriptor.value;
         descriptor.value = async function (...args) {
-            const { service, ctx } = this;
-            const userId = _.get(ctx, 'headers.userId', _.get(ctx, 'session.user.userId'));
+            const { service } = this;
+            const { userId } = this;
             if (!userId) {
                 this.failure(new gn_error_1.default(gn_error_1.GN_ERROR_CODE.UNAUTHORIZED));
                 return;
