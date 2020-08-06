@@ -5,13 +5,12 @@ function Authorize(...authRoles) {
     const authRole = (authRoles || []).reduce((c, e) => c | e.getValue(), 0);
     return function (target, key, descriptor) {
         if (authRoles.length === 0) {
-            console.warn('Please provide at least one AUTHORIZE_ROLE', target, key);
+            console.warn('please provide at least one AUTHORIZE_ROLE', target, key);
             return;
         }
         const originalFunction = descriptor.value;
         descriptor.value = async function (...args) {
-            const { service } = this;
-            const { userId } = this;
+            const { service, userId } = this;
             if (!userId) {
                 this.failure(new gn_error_1.default(gn_error_1.GN_ERROR_CODE.UNAUTHORIZED));
                 return;

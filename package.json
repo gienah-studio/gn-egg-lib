@@ -22,16 +22,10 @@
   "homepage": "https://github.com/gienah-studio/gn-egg-lib#readme",
   "devDependencies": {
     "@types/hapi__joi": "^17.1.4",
-    "@types/lodash": "^4.14.158",
-    "egg": "^2.27.0",
-    "egg-errors": "^2.1.1",
+    "@types/lodash": "^4.14.159",
     "husky": "^4.2.5",
-    "lodash": "^4.17.19",
     "np": "^6.3.2",
-    "prettier": "^2.0.5",
-    "reflect-metadata": "^0.1.13",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.7"
+    "prettier": "^2.0.5"
   },
   "files": [
     "gn-authorize",
@@ -46,7 +40,13 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@hapi/joi": "^17.1.1"
+    "@hapi/joi": "^17.1.1",
+    "egg": "^2.27.0",
+    "egg-errors": "^2.1.1",
+    "lodash": "^4.17.19",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.7"
   },
   "husky": {
     "hooks": {

@@ -7,16 +7,14 @@ export default function Authorize(...authRoles: AUTHORIZE_ROLE[]) {
 
   return function (target, key, descriptor) {
     if (authRoles.length === 0) {
-      console.warn('Please provide at least one AUTHORIZE_ROLE', target, key);
+      console.warn('please provide at least one AUTHORIZE_ROLE', target, key);
       return;
     }
 
     const originalFunction = descriptor.value;
 
     descriptor.value = async function (this: GNBaseController, ...args: any[]) {
-      const { service } = this;
-
-      const { userId } = this;
+      const { service, userId } = this;
       if (!userId) {
         this.failure(new GNError(GN_ERROR_CODE.UNAUTHORIZED));
         return;

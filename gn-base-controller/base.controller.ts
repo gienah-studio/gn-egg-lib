@@ -8,13 +8,10 @@ export default class GNBaseController extends Controller {
   }
 
   success(data) {
-    const responseBody: any = {
+    this.ctx.body = {
       code: GN_ERROR_CODE.SUCCESS.getValue()[0],
+      data,
     };
-    if (data !== undefined) {
-      responseBody.data = data;
-    }
-    this.ctx.body = responseBody;
   }
 
   failure(e) {

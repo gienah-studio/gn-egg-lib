@@ -8,13 +8,10 @@ class GNBaseController extends egg_1.Controller {
         return _.get(this.ctx, 'session.user.userId') || _.get(this.ctx, 'request.header.userid');
     }
     success(data) {
-        const responseBody = {
+        this.ctx.body = {
             code: gn_error_1.GN_ERROR_CODE.SUCCESS.getValue()[0],
+            data,
         };
-        if (data !== undefined) {
-            responseBody.data = data;
-        }
-        this.ctx.body = responseBody;
     }
     failure(e) {
         if (e instanceof gn_error_1.default) {
